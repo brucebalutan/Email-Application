@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body style="text-align: center;">
+
+    <h1 style="font-weight: bold;">Login Page</h1>
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <label for="email">Gmail Account:</label>
+        <input type="text" id="email" name="email" required><br><br>
+
+        <label for="app_password">App Password:</label>
+        <input type="password" id="app_password" name="app_password" required><br><br>
+
+        <input type="submit" value="Login" style="background-color: #3498db; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">
+    </form>
+
+</body>
+</html>

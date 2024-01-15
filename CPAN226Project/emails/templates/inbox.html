@@ -1,0 +1,188 @@
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Email Inbox</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <style>&ndash;&gt;-->
+<!--&lt;!&ndash;        body {&ndash;&gt;-->
+<!--&lt;!&ndash;            font-family: Arial, sans-serif;&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #f4f4f4;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        h1 {&ndash;&gt;-->
+<!--&lt;!&ndash;            color: #333;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .email-container {&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #fff;&ndash;&gt;-->
+<!--&lt;!&ndash;            padding: 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin-bottom: 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;            border-radius: 5px;&ndash;&gt;-->
+<!--&lt;!&ndash;            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        strong {&ndash;&gt;-->
+<!--&lt;!&ndash;            color: #555;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        hr {&ndash;&gt;-->
+<!--&lt;!&ndash;            border: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;            border-top: 1px solid #ddd;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin: 10px 0;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    </style>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <h1>Email Inbox</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% for email in emails %}&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="email-container">&ndash;&gt;-->
+<!--&lt;!&ndash;            <strong>Subject:</strong> {{ email.subject }}<br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <strong>From:</strong> {{ email.from }}<br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <strong>Date:</strong> {{ email.date }}<br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <strong>Body:</strong> {{ email.body | safe }}<br>&ndash;&gt;-->
+<!--&lt;!&ndash;            <hr>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Email Inbox</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f4;-->
+<!--            margin: 20px;-->
+<!--        }-->
+
+<!--        h1 {-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .email-button {-->
+<!--            display: block;-->
+<!--            background-color: #fff;-->
+<!--            padding: 15px;-->
+<!--            margin-bottom: 20px;-->
+<!--            border: 1px solid #ddd;-->
+<!--            border-radius: 5px;-->
+<!--            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);-->
+<!--            text-decoration: none;-->
+<!--            color: #333;-->
+<!--            transition: background-color 0.3s;-->
+<!--        }-->
+
+<!--        .email-button:hover {-->
+<!--            background-color: #f9f9f9;-->
+<!--        }-->
+
+<!--        strong {-->
+<!--            color: #555;-->
+<!--        }-->
+
+<!--        hr {-->
+<!--            border: 0;-->
+<!--            border-top: 1px solid #ddd;-->
+<!--            margin: 10px 0;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Email Inbox</h1>-->
+<!--    {% for email in emails %}-->
+<!--    <div class="email-container">-->
+<!--        <strong>Subject:</strong> {{ email.subject }}<br>-->
+<!--        <strong>From:</strong> {{ email.from }}<br>-->
+<!--        <strong>Date:</strong> {{ email.date }}<br>-->
+<!--        <strong>Body:</strong> {{ email.body | safe }}<br>-->
+<!--        <a href="{% url 'email_detail' forloop.counter %}">Read More</a><br>-->
+<!--        <hr>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Inbox</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .header-buttons {
+            display: flex;
+            flex-direction: row;
+            margin-top:30px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .email-button {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .email-button:hover {
+            background-color: #f9f9f9;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+       <div class="header">
+        <h1>Email Inbox</h1>
+        <div class="header-buttons">
+            <a href="{% url 'compose_email' %}" class="button">Compose Email</a>
+            <a  href="{% url 'login' %}" class="button">Logout</a>
+        </div>
+    </div>
+    {% for email in emails %}
+        <div class="email-button">
+            <strong>{{ email.from }}</strong><br>
+            <div class="ellipsis"><strong>Subject:</strong> {{ email.subject }}</div>
+            <a href="{% url 'email_detail' forloop.counter %}">Read More</a><br>
+        </div>
+    {% endfor %}
+</body>
+</html>

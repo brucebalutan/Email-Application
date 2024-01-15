@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reply Email</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5" enctype="multipart/form-data">
+        <h2>Reply Email</h2>
+        <h3>Replying to: {{ initial_data.receiver }}</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="cc">CC (Optional):</label>
+                <input type="email" class="form-control" id="cc" name="cc" value="{{ initial_data.cc }}">
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="{{ initial_data.subject }}" required>
+            </div>
+            <div class="form-group">
+                <label for="body">Email Body:</label>
+                <textarea class="form-control" id="body" name="body" rows="4"  required></textarea>
+            </div>
+            <h2>Attachment (optional)</h2>
+            <div>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="attachment">Choose File:</label>
+                <input type="file" class="form-control-file" id="attachment" name="attachment">
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Email</button>
+        </form>
+    </div>
+
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+</html>

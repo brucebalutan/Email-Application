@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .email-container {
+            background-color: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        strong {
+            color: #555;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+        .header-buttons {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Inbox</h1>
+        <div class="email-container">
+            <strong>Subject:</strong> {{ email.subject }}<br>
+            <strong>From:</strong> {{ email.from }}<br>
+            <strong>Date:</strong> {{ email.date }}<br>
+            <strong>Body:</strong> {{ email.body | safe }}<br>
+            <hr>
+        </div>
+        <div class="header-buttons">
+            <a href="{% url 'reply_email' email.id %}" class="button">Reply</a>
+        </div>
+</body>
+</html>
+
+
+<!--add a reply button-->
