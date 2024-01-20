@@ -13,3 +13,6 @@ The pages involved are as follows:
   - The email composition page
   - The reply composition page
 
+Restrictions:
+  - Needs to be a Gmail account
+  - Needs to have an app password
