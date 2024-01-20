@@ -1,13 +1,11 @@
-Pending, usable only for gmail currently
-
-Email Application with SSL Encryption using Django
+# Email Application with SSL Encryption using Django
 
 This web application provides allows a Gmail user an encrypted way to send their emails via SSL encryption to the Gmail server.
 It allows for email composition, carbon copy funcitonality, user-friendly interfaces, and inbox viewing.
 
 This is all done through Gmail's IMAP functionality to get the inbox of the user's choice.
 
-The pages involved are as follows:
+# The pages involved are as follows:
   - The login page
       - The login email must be a Gmail account along with the Gmail app password created beforehand
 ![image](https://github.com/brucebalutan/Email-Application/assets/19336369/e7ead76c-096e-4b40-986e-f1076d88e077)
